@@ -30,18 +30,18 @@ void *binary_search(const void *key, const void *base, size_t num_elem, size_t e
     {
         mid = (lo + hi)/2;
         
-        if(compar(pc1, pc2[mid]) < 0)
+        if(compar(pc1, &pc2[mid*elem_size]) < 0)
         {
             hi = mid - elem_size;
         }
         else 
-            if (compar(pc1, pc2[mid]) > 0)
+            if (compar(pc1, &pc2[mid*elem_size]) > 0)
             {
                 lo = mid + elem_size;
             }
             else
                 {
-                    return pc2[mid];
+                    return &pc2[mid*elem_size];
                 }
     }
     return NULL;
