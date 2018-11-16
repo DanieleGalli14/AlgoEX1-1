@@ -14,10 +14,12 @@ void any_copy(void *dest, const void *src, size_t n)
     assert( dest != NULL );
     assert( src != NULL );
 
-    /* TO STUDENTS:
-     *  Remove the following two lines and put here your implementation. */
-    fprintf(stderr, "To be implemented!\n");
-    abort();
+    unsigned char *pc1 = dest;
+    unsigned char *pc2 = src;
+    size_t i;
+    for(i = 0; i<n; i++){
+        pc1[i]=pc2[i];
+    }
 }
 
 int main()
@@ -59,7 +61,7 @@ int main()
     {
         assert( fary_cpy[i] == fary[i] );
 
-        printf("%f ", fary_cpy[i]);
+        printf("%.2f ", fary_cpy[i]);
     }
     printf("]\n");
 
