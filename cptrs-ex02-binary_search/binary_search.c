@@ -20,10 +20,31 @@ void *binary_search(const void *key, const void *base, size_t num_elem, size_t e
     assert( base != NULL );
     assert( compar != NULL );
 
-    /* TO STUDENTS:
-     *  Remove the following two lines and put here your implementation. */
-    fprintf(stderr, "To be implemented!\n");
-    abort();
+    size_t lo = 0;
+    size_t hi = num_elem - 1;
+    size_t mid;
+    const unsigned char * pc1 = key;
+    const unsigned char * pc2 = base;
+    
+    while(lo <= hi)
+    {
+        mid = (lo + hi)/2;
+        
+        if(compar(pc1, pc2[mid]) < 0)
+        {
+            hi = mid - elem_size;
+        }
+        else 
+            if (compar(pc1, pc2[mid]) > 0)
+            {
+                lo = mid + elem_size;
+            }
+            else
+                {
+                    return pc2[mid];
+                }
+    }
+    return NULL;
 }
 
 int int_cmp(const void *pkey, const void *pelem)

@@ -15,7 +15,7 @@ void any_copy(void *dest, const void *src, size_t n)
     assert( src != NULL );
 
     unsigned char *pc1 = dest;
-    unsigned char *pc2 = src;
+    const unsigned char *pc2 = src;
     size_t i;
     for(i = 0; i<n; i++){
         pc1[i]=pc2[i];
